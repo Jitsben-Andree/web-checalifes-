@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resultados - ChecaLifes+</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../../tailwind.config.js"></script>
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+  </head>
+
+  <body class="bg-gray-50 min-h-screen flex flex-col">
+    <nav class="bg-checa-blue p-4 text-white flex justify-between shadow-md">
+      <h1 class="font-bold text-xl flex items-center gap-2">📋 ChecaLifes+</h1>
+      <a href="../../index.html" class="hover:text-checa-green font-semibold"
+        >Salir</a
+      >
+    </nav>
+
+    <main
+      class="flex-grow container mx-auto p-4 md:p-10 flex flex-col items-center"
+    >
+      <div
+        id="alertaEmergencia"
+        class="hidden w-full max-w-3xl bg-red-600 text-white p-6 rounded-xl shadow-2xl mb-8 animate-pulse text-center border-4 border-red-800"
+      >
+        <h2
+          class="text-3xl font-black mb-2 flex items-center justify-center gap-2"
+        >
+          🚨 ¡ALERTA MÉDICA DE EMERGENCIA! 🚨
+        </h2>
+        <p class="text-lg font-bold">
+          Por favor, acuda a un centro de salud inmediatamente o llame a los
+          números de emergencia.
+        </p>
+        <p class="text-2xl font-black mt-4">
+          SAMU: 106 | Bomberos: 116 | Policía: 105
+        </p>
+      </div>
+
+      <div
+        class="bg-white p-8 rounded-xl shadow-xl w-full max-w-3xl border-t-8 border-checa-blue"
+        id="tarjetaResultado"
+      >
+        <div class="text-center mb-8 border-b pb-4">
+          <h2 class="text-3xl font-bold text-gray-800">
+            Tu Evaluación Preventiva
+          </h2>
+          <p class="text-gray-500 mt-2">
+            Basado en los datos y síntomas ingresados.
+          </p>
+        </div>
+
+        <div class="space-y-6">
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <p class="text-sm text-gray-500 uppercase font-bold">Paciente</p>
+            <p class="text-xl font-semibold text-gray-800" id="resNombre">
+              Cargando...
+            </p>
+            <p class="text-sm text-gray-600" id="resEdad">Edad: --</p>
+          </div>
+
+          <div>
+            <p class="text-sm text-checa-blue uppercase font-bold">
+              Cuadro Clínico Sugerido
+            </p>
+            <p
+              class="text-lg font-medium text-gray-800 bg-blue-50 p-4 rounded-lg border-l-4 border-checa-blue"
+              id="resDiagnostico"
+            >
+              Calculando...
+            </p>
+          </div>
+
+          <div>
+            <p class="text-sm text-checa-green-text uppercase font-bold">
+              Recomendaciones (Qué hacer)
+            </p>
+            <p
+              class="text-md text-gray-700 bg-green-50 p-4 rounded-lg border-l-4 border-checa-green-text"
+              id="resRecomendacion"
+            >
+              Calculando...
+            </p>
+          </div>
+
+          <div>
+            <p class="text-sm text-purple-600 uppercase font-bold">
+              Especialista Sugerido
+            </p>
+            <p class="text-md font-bold text-gray-800 flex items-center gap-2">
+               <span id="resEspecialista">Calculando...</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Le pusimos un ID al contenedor de botones para ocultarlos al imprimir -->
+        <div
+          id="contenedorBotones"
+          class="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
+        >
+          <!-- Le pusimos ID al botón de descargar -->
+          <button
+            id="btnDescargarPDF"
+            class="bg-gray-800 hover:bg-gray-900 text-white font-bold px-6 py-3 rounded-lg shadow-md transition flex items-center justify-center gap-2"
+          >
+            📄 Descargar Reporte PDF
+          </button>
+
+          <a
+            href="../../index.html"
+            class="bg-checa-blue hover:bg-checa-light-blue text-white font-bold px-6 py-3 rounded-lg shadow-md transition text-center"
+          >
+            Finalizar
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Agregamos html2pdf.js y nuestro nuevo script exportPDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="../../js/core/algoritmo.js"></script>
+    <script src="../../js/utils/alertManager.js"></script>
+    <script src="../../js/utils/exportPDF.js"></script>
+  </body>
+</html>
