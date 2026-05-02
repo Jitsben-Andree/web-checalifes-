@@ -1,17 +1,112 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Síntomas</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <title>Síntomas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-  <body class="bg-gray-100">
-    <nav class="bg-blue-600 p-4 text-white flex justify-between">
-      <h1>ChecaLifes+</h1>
-      <a href="../../index.html">Inicio</a>
-    </nav>
+<body class="bg-gray-100">
 
-    <script src="../../js/controllers/triajeController.js"></script>
-  </body>
+<nav class="bg-blue-600 p-4 text-white flex justify-between">
+  <h1>ChecaLifes+</h1>
+  <a href="../../index.html">Inicio</a>
+</nav>
+
+<section class="p-10">
+
+<h2 class="text-xl font-bold mb-6 text-center">Selecciona tus síntomas</h2>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+<!-- SINTOMAS (12) -->
+<label class="border p-4 rounded text-center">
+<input type="checkbox" value="dolor_cabeza">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcXTLXRRKjlXJ4gZXstC2tUxa7MfwtLnpHyQ&s" class="w-16 mx-auto">
+<p>Dolor de cabeza</p>
+</label>
+
+<label class="border p-4 rounded text-center">
+<input type="checkbox" value="fiebre">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHMWh_O1b1eoaaADRL7ZImmkn0NpHrheRy7w&s" class="w-16 mx-auto">
+<p>Fiebre</p>
+</label>
+
+<label class="border p-4 rounded text-center">
+<input type="checkbox" value="tos">
+<img src="https://images.ctfassets.net/qilztky7jpz1/54C2nS25hCPYHr0t8Jjpw8/c58a7325aa1578792212bbd24a6f4ade/tipos-de-tos-card_image.jpg" class="w-16 mx-auto">
+<p>Tos</p>
+</label>
+
+<label class="border p-4 rounded text-center">
+<input type="checkbox" value="mareos">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW1CWfVed04iY9B2WrnhnKyY_fGFAxoqK1wA&s" class="w-16 mx-auto">
+<p>Mareos</p>
+</label>
+
+<label class="border p-4 rounded text-center">
+<input type="checkbox" value="pecho">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuzNU99G2hl0aCQbqO2ec1dtsq3R2OsE9bKA&s" class="w-16 mx-auto">
+<p>Dolor de pecho</p>
+</label>
+
+<label class="border p-4 rounded text-center">
+<input type="checkbox" value="nauseas">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxG-Vf6l4kSphLKy3BWX9mHoir_n_I1nGshQ&s" class="w-16 mx-auto">
+<p>Náuseas</p>
+</label>
+
+<label class="border p-4 rounded text-center">
+<input type="checkbox" value="garganta">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfTKlG3r74H0CrXu0vpR1rZViH36IyPm0tkg&s" class="w-16 mx-auto">
+<p>Dolor de garganta</p>
+</label>
+
+<label class="border p-4 rounded text-center">
+<input type="checkbox" value="fatiga">
+<img src="https://centromedicoabc.com/wp-content/uploads/2023/11/Si%CC%81ndrome-de-fatiga-cro%CC%81nica-co%CC%81mo-identificarlo-y-atenderlo.webp" class="w-16 mx-auto">
+<p>Fatiga</p>
+</label>
+
+<label class="border p-4 rounded text-center">
+<input type="checkbox" value="vision">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNXr5ZHLZ5FLxXnJgrbBAs2jpvtx6mE-al0g&s" class="w-16 mx-auto">
+<p>Visión borrosa</p>
+</label>
+
+<label class="border p-4 rounded text-center">
+<input type="checkbox" value="respirar">
+<img src="https://twnlivestorage1.blob.core.windows.net/twn-media-public/VMPRG57122B/VMPRG57122B_g00.jpg" class="w-16 mx-auto">
+<p>Dificultad al respirar</p>
+</label>
+
+<label class="border p-4 rounded text-center">
+<input type="checkbox" value="vomito">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRst146wkuGeqEHHIO-u8K1QWJwbKPfhWHHBA&s" class="w-16 mx-auto">
+<p>Vómitos</p>
+</label>
+
+<label class="border p-4 rounded text-center">
+<input type="checkbox" value="escalofrios">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1PBHAjjmltQwFjJGewF3H9K9j87XHfesCgw&s" class="w-16 mx-auto">
+<p>Escalofríos</p>
+</label>
+
+</div>
+
+<div class="text-center mt-8">
+<button onclick="verResultado()" 
+class="bg-green-600 text-white px-6 py-3 rounded">
+VER RESULTADO →
+</button>
+</div>
+
+<!-- RESULTADO -->
+<div id="resultado" class="mt-10 hidden bg-white p-6 rounded shadow text-center"></div>
+
+</section>
+
+<script src="../../js/controllers/triajeController.js"></script>
+
+</body>
 </html>
