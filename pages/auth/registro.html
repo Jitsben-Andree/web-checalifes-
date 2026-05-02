@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro - ChecaLifes+</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../../tailwind.config.js"></script>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+<!-- NAVBAR -->
+<nav class="bg-checa-blue p-4 text-white shadow-md">
+  <div class="container mx-auto flex justify-between items-center">
+    <h1 class="font-bold text-xl flex items-center gap-2">📋 ChecaLifes+</h1>
+    <a href="../../index.html" class="hover:text-checa-green font-semibold">← Volver al Inicio</a>
+  </div>
+</nav>
+
+<!-- CONTENIDO CENTRAL -->
+<main class="flex-grow flex items-center justify-center p-4">
+  <div class="bg-white p-8 rounded-xl shadow-xl w-full max-w-md my-8">
+    
+    <div class="text-center mb-6">
+      <h2 class="text-3xl font-bold text-gray-800">Crea tu cuenta</h2>
+      <p class="text-gray-500 mt-2">Registra tus datos para guardar tu historial médico.</p>
+    </div>
+
+    <!-- ALERTA DE MENSAJES (Oculta por defecto) -->
+    <div id="registerAlert" class="hidden mb-4 p-3 rounded-lg text-sm font-medium text-center"></div>
+
+    <form id="formRegistro" class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Nombre Completo</label>
+        <input type="text" id="regNombre" placeholder="Ej. Juan Pérez" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-checa-blue outline-none transition" required>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico</label>
+        <input type="email" id="regEmail" placeholder="tu@correo.com" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-checa-blue outline-none transition" required>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Contraseña</label>
+        <input type="password" id="regPassword" placeholder="Mínimo 6 caracteres" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-checa-blue outline-none transition" required minlength="6">
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Confirmar Contraseña</label>
+        <input type="password" id="regConfirmPassword" placeholder="Repite tu contraseña" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-checa-blue outline-none transition" required minlength="6">
+      </div>
+
+      <button type="submit" class="w-full bg-checa-green-text hover:bg-green-800 text-white font-bold py-3 rounded-lg shadow-md transition transform hover:-translate-y-0.5 mt-2">
+        REGISTRARSE
+      </button>
+    </form>
+
+    <div class="mt-6 text-center text-sm text-gray-600">
+      ¿Ya tienes una cuenta? 
+      <a href="login.html" class="text-checa-blue font-bold hover:underline">Inicia sesión</a>
+    </div>
+  </div>
+</main>
+
+<script src="../../js/controllers/authController.js"></script>
+</body>
+</html>
