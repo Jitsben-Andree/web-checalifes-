@@ -2,111 +2,90 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Síntomas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Síntomas - ChecaLifes+</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../../tailwind.config.js"></script>
+  <link rel="stylesheet" href="../../assets/css/main.css">
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-50 min-h-screen flex flex-col">
 
-<nav class="bg-blue-600 p-4 text-white flex justify-between">
-  <h1>ChecaLifes+</h1>
-  <a href="../../index.html">Inicio</a>
+<nav class="bg-checa-blue p-4 text-white flex justify-between shadow-md">
+  <h1 class="font-bold text-xl flex items-center gap-2">📋 ChecaLifes+</h1>
+  <a href="datos.html" class="hover:text-checa-green font-semibold">← Volver a Datos</a>
 </nav>
 
-<section class="p-10">
+<main class="flex-grow container mx-auto p-4 md:p-10">
+  <div class="text-center mb-8">
+    <h2 class="text-3xl font-bold text-gray-800">Selecciona tus síntomas</h2>
+    <p class="text-gray-600 mt-2">Paso 2 de 2: Marca todo lo que estés sintiendo en este momento.</p>
+  </div>
 
-<h2 class="text-xl font-bold mb-6 text-center">Selecciona tus síntomas</h2>
+  <form id="formSintomas">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
-<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <!-- SINTOMAS (Reutilizando el excelente diseño de Jarol, pero mejorando el visual) -->
+      <label class="border-2 border-gray-200 hover:border-checa-blue p-4 rounded-xl text-center cursor-pointer transition bg-white shadow-sm flex flex-col items-center justify-between">
+        <input type="checkbox" name="sintomas" value="dolor_cabeza" class="w-5 h-5 mb-3 text-checa-blue">
+        <img src="https://cdn-icons-png.flaticon.com/512/2867/2867375.png" class="w-16 h-16 mx-auto mb-2 object-contain" alt="Dolor de cabeza">
+        <span class="font-medium text-gray-700">Dolor de cabeza</span>
+      </label>
 
-<!-- SINTOMAS (12) -->
-<label class="border p-4 rounded text-center">
-<input type="checkbox" value="dolor_cabeza">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcXTLXRRKjlXJ4gZXstC2tUxa7MfwtLnpHyQ&s" class="w-16 mx-auto">
-<p>Dolor de cabeza</p>
-</label>
+      <label class="border-2 border-gray-200 hover:border-checa-blue p-4 rounded-xl text-center cursor-pointer transition bg-white shadow-sm flex flex-col items-center justify-between">
+        <input type="checkbox" name="sintomas" value="fiebre" class="w-5 h-5 mb-3 text-checa-blue">
+        <img src="https://cdn-icons-png.flaticon.com/512/3209/3209000.png" class="w-16 h-16 mx-auto mb-2 object-contain" alt="Fiebre">
+        <span class="font-medium text-gray-700">Fiebre</span>
+      </label>
 
-<label class="border p-4 rounded text-center">
-<input type="checkbox" value="fiebre">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHMWh_O1b1eoaaADRL7ZImmkn0NpHrheRy7w&s" class="w-16 mx-auto">
-<p>Fiebre</p>
-</label>
+      <label class="border-2 border-gray-200 hover:border-checa-blue p-4 rounded-xl text-center cursor-pointer transition bg-white shadow-sm flex flex-col items-center justify-between">
+        <input type="checkbox" name="sintomas" value="tos" class="w-5 h-5 mb-3 text-checa-blue">
+        <img src="https://cdn-icons-png.flaticon.com/512/2867/2867355.png" class="w-16 h-16 mx-auto mb-2 object-contain" alt="Tos">
+        <span class="font-medium text-gray-700">Tos seca o con flema</span>
+      </label>
 
-<label class="border p-4 rounded text-center">
-<input type="checkbox" value="tos">
-<img src="https://images.ctfassets.net/qilztky7jpz1/54C2nS25hCPYHr0t8Jjpw8/c58a7325aa1578792212bbd24a6f4ade/tipos-de-tos-card_image.jpg" class="w-16 mx-auto">
-<p>Tos</p>
-</label>
+      <label class="border-2 border-gray-200 hover:border-checa-blue p-4 rounded-xl text-center cursor-pointer transition bg-white shadow-sm flex flex-col items-center justify-between">
+        <input type="checkbox" name="sintomas" value="pecho" class="w-5 h-5 mb-3 text-checa-blue">
+        <img src="https://cdn-icons-png.flaticon.com/512/5024/5024345.png" class="w-16 h-16 mx-auto mb-2 object-contain" alt="Dolor de pecho">
+        <span class="font-medium text-gray-700">Dolor de pecho</span>
+      </label>
 
-<label class="border p-4 rounded text-center">
-<input type="checkbox" value="mareos">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW1CWfVed04iY9B2WrnhnKyY_fGFAxoqK1wA&s" class="w-16 mx-auto">
-<p>Mareos</p>
-</label>
+      <label class="border-2 border-gray-200 hover:border-checa-blue p-4 rounded-xl text-center cursor-pointer transition bg-white shadow-sm flex flex-col items-center justify-between">
+        <input type="checkbox" name="sintomas" value="nauseas" class="w-5 h-5 mb-3 text-checa-blue">
+        <img src="https://cdn-icons-png.flaticon.com/512/2966/2966327.png" class="w-16 h-16 mx-auto mb-2 object-contain" alt="Náuseas">
+        <span class="font-medium text-gray-700">Náuseas o Vómitos</span>
+      </label>
 
-<label class="border p-4 rounded text-center">
-<input type="checkbox" value="pecho">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuzNU99G2hl0aCQbqO2ec1dtsq3R2OsE9bKA&s" class="w-16 mx-auto">
-<p>Dolor de pecho</p>
-</label>
+      <label class="border-2 border-gray-200 hover:border-checa-blue p-4 rounded-xl text-center cursor-pointer transition bg-white shadow-sm flex flex-col items-center justify-between">
+        <input type="checkbox" name="sintomas" value="garganta" class="w-5 h-5 mb-3 text-checa-blue">
+        <img src="https://cdn-icons-png.flaticon.com/512/2867/2867350.png" class="w-16 h-16 mx-auto mb-2 object-contain" alt="Dolor de garganta">
+        <span class="font-medium text-gray-700">Dolor de garganta</span>
+      </label>
 
-<label class="border p-4 rounded text-center">
-<input type="checkbox" value="nauseas">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxG-Vf6l4kSphLKy3BWX9mHoir_n_I1nGshQ&s" class="w-16 mx-auto">
-<p>Náuseas</p>
-</label>
+      <label class="border-2 border-gray-200 hover:border-checa-blue p-4 rounded-xl text-center cursor-pointer transition bg-white shadow-sm flex flex-col items-center justify-between">
+        <input type="checkbox" name="sintomas" value="fatiga" class="w-5 h-5 mb-3 text-checa-blue">
+        <img src="https://cdn-icons-png.flaticon.com/512/2966/2966334.png" class="w-16 h-16 mx-auto mb-2 object-contain" alt="Fatiga">
+        <span class="font-medium text-gray-700">Cansancio extremo</span>
+      </label>
 
-<label class="border p-4 rounded text-center">
-<input type="checkbox" value="garganta">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfTKlG3r74H0CrXu0vpR1rZViH36IyPm0tkg&s" class="w-16 mx-auto">
-<p>Dolor de garganta</p>
-</label>
+      <label class="border-2 border-gray-200 hover:border-checa-blue p-4 rounded-xl text-center cursor-pointer transition bg-white shadow-sm flex flex-col items-center justify-between">
+        <input type="checkbox" name="sintomas" value="respirar" class="w-5 h-5 mb-3 text-checa-blue">
+        <img src="https://cdn-icons-png.flaticon.com/512/5024/5024361.png" class="w-16 h-16 mx-auto mb-2 object-contain" alt="Dificultad al respirar">
+        <span class="font-medium text-gray-700">Dificultad al respirar</span>
+      </label>
 
-<label class="border p-4 rounded text-center">
-<input type="checkbox" value="fatiga">
-<img src="https://centromedicoabc.com/wp-content/uploads/2023/11/Si%CC%81ndrome-de-fatiga-cro%CC%81nica-co%CC%81mo-identificarlo-y-atenderlo.webp" class="w-16 mx-auto">
-<p>Fatiga</p>
-</label>
+    </div>
 
-<label class="border p-4 rounded text-center">
-<input type="checkbox" value="vision">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNXr5ZHLZ5FLxXnJgrbBAs2jpvtx6mE-al0g&s" class="w-16 mx-auto">
-<p>Visión borrosa</p>
-</label>
+    <div class="text-center mt-10">
+      <!-- Este botón debe ser procesado por triajeController.js para guardar en localStorage y redirigir -->
+      <button type="submit" class="bg-checa-green-text hover:bg-green-800 text-white font-bold px-10 py-4 rounded-full shadow-lg text-lg transition transform hover:scale-105">
+        ANALIZAR MIS SÍNTOMAS →
+      </button>
+    </div>
+  </form>
 
-<label class="border p-4 rounded text-center">
-<input type="checkbox" value="respirar">
-<img src="https://twnlivestorage1.blob.core.windows.net/twn-media-public/VMPRG57122B/VMPRG57122B_g00.jpg" class="w-16 mx-auto">
-<p>Dificultad al respirar</p>
-</label>
-
-<label class="border p-4 rounded text-center">
-<input type="checkbox" value="vomito">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRst146wkuGeqEHHIO-u8K1QWJwbKPfhWHHBA&s" class="w-16 mx-auto">
-<p>Vómitos</p>
-</label>
-
-<label class="border p-4 rounded text-center">
-<input type="checkbox" value="escalofrios">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1PBHAjjmltQwFjJGewF3H9K9j87XHfesCgw&s" class="w-16 mx-auto">
-<p>Escalofríos</p>
-</label>
-
-</div>
-
-<div class="text-center mt-8">
-<button onclick="verResultado()" 
-class="bg-green-600 text-white px-6 py-3 rounded">
-VER RESULTADO →
-</button>
-</div>
-
-<!-- RESULTADO -->
-<div id="resultado" class="mt-10 hidden bg-white p-6 rounded shadow text-center"></div>
-
-</section>
+</main>
 
 <script src="../../js/controllers/triajeController.js"></script>
-
 </body>
 </html>

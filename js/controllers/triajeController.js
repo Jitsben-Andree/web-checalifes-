@@ -1,55 +1,54 @@
-// GUARDAR DATOS
-document.getElementById("formDatos")?.addEventListener("submit", function (e) {
-  e.preventDefault();
 
-  const datos = {
-    nombre: document.getElementById("nombre").value,
-    edad: document.getElementById("edad").value,
-  };
 
-  localStorage.setItem("datosPaciente", JSON.stringify(datos));
+document.addEventListener("DOMContentLoaded", () => {
 
-  window.location.href = "sintomas.html";
+    const formDatos = document.getElementById("formDatos");   
+    if (formDatos) {
+        formDatos.addEventListener("submit", function (e) {
+            e.preventDefault(); 
+
+            // Capturamos todos los campos que pusimos en el HTML
+            const datos = {
+                nombre: document.getElementById("nombre").value,
+                edad: document.getElementById("edad").value,
+                sexo: document.getElementById("sexo").value,
+                fuma: document.getElementById("fuma").value,
+                bebe: document.getElementById("bebe").value,
+            };
+
+            // Guardamos en memoria
+            localStorage.setItem("datosPaciente", JSON.stringify(datos));
+
+            // Redirigimos al paso 2
+            window.location.href = "sintomas.html";
+        });
+    }
+
+    //  sintomas.html
+    
+    const formSintomas = document.getElementById("formSintomas");
+
+    if (formSintomas) {
+        formSintomas.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const sintomas = [];
+  
+            document.querySelectorAll("input[type=checkbox]:checked").forEach((el) => {
+                sintomas.push(el.value);
+            });
+
+            // Validación básica
+            if (sintomas.length === 0) {
+                alert("Por favor, selecciona al menos un síntoma para continuar.");
+                return;
+            }
+
+            localStorage.setItem("sintomasPaciente", JSON.stringify(sintomas));
+
+  
+            window.location.href = "../resultados/diagnostico.html";
+        });
+    }
+
 });
-
-// RESULTADOS INTELIGENTES
-function verResultado() {
-  const sintomas = [];
-  document
-    .querySelectorAll("input[type=checkbox]:checked")
-    .forEach((el) => sintomas.push(el.value));
-
-  let diagnostico = "Condición leve";
-  let receta = "Descansar y tomar líquidos.";
-  let solucion = "Evitar estrés y mantener buena alimentación.";
-
-  if (sintomas.includes("dolor_cabeza")) {
-    diagnostico = "Migraña leve";
-    receta = "Paracetamol + descanso en lugar oscuro.";
-    solucion = "Evitar pantallas y dormir bien.";
-  }
-
-  if (sintomas.includes("fiebre")) {
-    diagnostico = "Infección leve";
-    receta = "Paracetamol y líquidos.";
-    solucion = "Reposo y control de temperatura.";
-  }
-
-  if (sintomas.includes("pecho") || sintomas.includes("respirar")) {
-    diagnostico = "⚠ Posible emergencia";
-    receta = "NO automedicarse.";
-    solucion = "Acudir inmediatamente al hospital.";
-  }
-
-  const datos = JSON.parse(localStorage.getItem("datosPaciente"));
-
-  document.getElementById("resultado").innerHTML = `
-        <h3 class="text-xl font-bold mb-3">Resultado</h3>
-        <p><strong>Paciente:</strong> ${datos?.nombre || "No registrado"}</p>
-        <p><strong>Diagnóstico:</strong> ${diagnostico}</p>
-        <p><strong>Receta:</strong> ${receta}</p>
-        <p><strong>Solución:</strong> ${solucion}</p>
-    `;
-
-  document.getElementById("resultado").classList.remove("hidden");
-}

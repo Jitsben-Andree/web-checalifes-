@@ -2,71 +2,82 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Datos - ChecaLifes+</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../../tailwind.config.js"></script>
+  <link rel="stylesheet" href="../../assets/css/main.css">
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-50 min-h-screen flex flex-col">
 
-<nav class="bg-blue-600 p-4 text-white flex justify-between">
-  <h1>ChecaLifes+</h1>
-  <a href="../../index.html">Inicio</a>
-
+<nav class="bg-checa-blue p-4 text-white flex justify-between shadow-md">
+  <h1 class="font-bold text-xl flex items-center gap-2">📋 ChecaLifes+</h1>
+  <a href="../../index.html" class="hover:text-checa-green font-semibold">← Volver al Inicio</a>
 </nav>
 
-<section class="p-10 flex flex-col md:flex-row items-center gap-10">
+<main class="flex-grow flex items-center justify-center p-4">
+  <section class="bg-white p-8 rounded-xl shadow-xl w-full max-w-4xl flex flex-col md:flex-row items-center gap-10">
 
-<!-- FORMULARIO -->
-<div class="bg-white p-6 rounded shadow w-full md:w-1/2">
+    <!-- FORMULARIO -->
+    <div class="w-full md:w-1/2">
+      <h2 class="text-2xl font-bold mb-2 text-gray-800">Datos personales</h2>
+      <p class="text-sm text-gray-500 mb-6">Paso 1 de 2: Cuéntanos un poco sobre ti.</p>
 
-<h2 class="text-xl font-bold mb-4">Datos personales</h2>
+      <form id="formDatos" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Nombres y Apellidos</label>
+          <input type="text" id="nombre" placeholder="Ej. Juan Pérez" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-checa-blue outline-none" required>
+        </div>
 
-<form id="formDatos">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Edad</label>
+          <input type="number" id="edad" placeholder="Ej. 35" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-checa-blue outline-none" required min="1" max="120">
+        </div>
 
-<input type="text" id="nombre" placeholder="Nombres y Apellidos" 
-class="w-full p-2 border mb-3" required>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Sexo Biológico</label>
+          <select id="sexo" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-checa-blue outline-none" required>
+            <option value="" disabled selected>Seleccionar...</option>
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+          </select>
+        </div>
 
-<input type="number" id="edad" placeholder="Edad" 
-class="w-full p-2 border mb-3" required>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">¿Fumas?</label>
+            <select id="fuma" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-checa-blue outline-none" required>
+              <option value="" disabled selected>Elegir</option>
+              <option value="SI">Sí</option>
+              <option value="NO">No</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">¿Bebes alcohol?</label>
+            <select id="bebe" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-checa-blue outline-none" required>
+              <option value="" disabled selected>Elegir</option>
+              <option value="SI">Sí</option>
+              <option value="NO">No</option>
+            </select>
+          </div>
+        </div>
 
-<select id="sexo" class="w-full p-2 border mb-3">
-  <option value="">Sexo</option>
-  <option>Masculino</option>
-  <option>Femenino</option>
-  <option>Prefiero no decirlo</option>
-</select>
+        <!-- El controlador interceptará este botón para redirigir a sintomas.html -->
+        <button type="submit" class="bg-checa-blue hover:bg-checa-light-blue text-white font-bold px-4 py-3 rounded-lg w-full mt-4 transition">
+          Continuar a Síntomas →
+        </button>
+      </form>
+    </div>
 
-<select id="fuma" class="w-full p-2 border mb-3">
-  <option value="">¿Fumas?</option>
-  <option>SI</option>
-  <option>NO</option>
-  <option>EX-FUMADOR</option>
-</select>
+    <!-- IMAGEN -->
+    <div class="w-full md:w-1/2 hidden md:block">
+      <img src="https://img.freepik.com/foto-gratis/doctor-sonriendo-senalando_23-2148075681.jpg" class="w-full rounded-lg shadow-md object-cover h-96" alt="Doctor indicando">
+    </div>
 
-<select id="bebe" class="w-full p-2 border mb-3">
-  <option value="">¿Bebes alcohol?</option>
-  <option>SI</option>
-  <option>NO</option>
-  <option>EX-BEBEDOR</option>
-</select>
-
-<button type="submit" 
-class="bg-blue-600 text-white px-4 py-2 rounded w-full">
-Siguiente →
-</button>
-
-</form>
-</div>
-
-<!-- IMAGEN DERECHA -->
-<div class="w-full md:w-1/2">
-  <img src="https://img.freepik.com/foto-gratis/doctor-sonriendo-senalando_23-2148075681.jpg?semt=ais_hybrid&w=740&q=80"
-       class="w-full max-w-md mx-auto">
-</div>
-
-</section>
+  </section>
+</main>
 
 <script src="../../js/controllers/triajeController.js"></script>
-
 </body>
 </html>
