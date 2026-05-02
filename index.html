@@ -1,48 +1,128 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChecaLifes+ | Inicio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="tailwind.config.js"></script>
-    <link rel="stylesheet" href="assets/css/main.css">
+  <meta charset="UTF-8">
+  <title>ChecaLifes+</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 flex flex-col min-h-screen">
+
+<body class="bg-gray-100">
+
+<!-- NAVBAR -->
+<nav class="bg-blue-600 p-4 text-white flex justify-between">
+  <h1 class="font-bold text-xl">ChecaLifes+</h1>
+  <div class="space-x-4">
+    <button onclick="mostrarSeccion('inicio')">Inicio</button>
+    <button onclick="mostrarSeccion('evaluacion')">Evaluación</button>
+    <button onclick="mostrarSeccion('historial')">Historial</button>
+    <button onclick="mostrarSeccion('informacion')">Información</button>
+    <a href="pages/triaje/datos.html">Datos</a>
+    <a href="pages/triaje/sintomas.html">Síntomas</a>
+  </div>
+</nav>
+
+<!-- INICIO  -->
+<section id="inicio" class="seccion text-center p-10 bg-white flex items-center justify-center gap-10">
+
+  <!-- IMAGEN IZQUIERDA -->
+  <img src="https://www.shutterstock.com/image-vector/flat-vector-illustration-on-white-600nw-2524300903.jpg"
+       class="w-32 hidden md:block">
+
+  <!-- CONTENIDO CENTRAL -->
+  <div>
+    <h2 class="text-3xl font-bold mb-4">
+      Diagnóstico y recomendaciones médicas online
+    </h2>
+
+    <p class="mb-6">
+      Responde algunas preguntas para orientarte en tu salud.
+    </p>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/2966/2966484.png"
+         class="mx-auto w-40 mb-6">
+
     
-    <!-- navbar -->
-    <header class="bg-checa-blue text-white p-4 shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold flex items-center gap-2">
-                <span class="text-3xl">📋</span> ChecaLifes+
-            </h1>
-            <nav>
-                <a href="pages/auth/login.html" class="hover:underline font-semibold">Iniciar Sesión / Registro</a>
-            </nav>
-        </div>
-    </header>
+    <a href="/pages/triaje/datos.html"
+       class="bg-blue-600 text-white px-6 py-3 rounded-lg">
+       COMENZAR EVALUACIÓN →
+    </a>
+  </div>
 
-    <!-- contenido principal -->
-    <main class="flex-grow container mx-auto p-4 flex flex-col items-center justify-center text-center">
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            Diagnóstico y recomendaciones <br> <span class="text-checa-blue">médicas online</span>
-        </h2>
-        <p class="text-gray-600 mb-8 max-w-2xl text-lg">
-            Responde algunas preguntas, ingresando tus síntomas para darte orientación en el cuidado de tu salud de manera rápida y preventiva.
-        </p>
-        
-        <a href="pages/auth/login.html" class="bg-checa-blue hover:bg-checa-light-blue text-white font-bold py-4 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
-            COMENZAR EVALUACIÓN →
-        </a>
-    </main>
+  <!-- IMAGEN DERECHA -->
+  <img src="https://www.shutterstock.com/image-vector/male-doctor-smiling-selfconfidence-flat-600nw-2281709217.jpg"
+       class="w-32 hidden md:block">
 
-    <!-- footer  -->
-    <footer class="bg-gray-800 text-white p-6 text-center text-sm mt-auto">
-        <p class="mb-2"><strong>IMPORTANTE:</strong> Recuerda que esta plataforma no busca reemplazar una consulta médica profesional.</p>
-        <p class="text-red-400 font-bold text-base flex items-center justify-center gap-2">
-            📞 Si necesitas ayuda inmediata llama a uno de estos números: SAMU (106) | Defensa Civil (115) | Policía (105)
-        </p>
-    </footer>
+</section>
+
+<!-- EVALUACIÓN -->
+<section id="evaluacion" class="seccion hidden text-center p-10 bg-gray-50">
+  <h3 class="text-2xl font-bold mb-4">Evaluación</h3>
+
+  <p class="mb-6">
+    Inicia tu evaluación completando tus datos personales.
+  </p>
+
+  <a href="pages/triaje/datos.html"
+     class="bg-blue-600 text-white px-6 py-3 rounded">
+     Ir a Datos →
+  </a>
+</section>
+
+<!-- HISTORIAL  -->
+<section id="historial" class="seccion hidden text-center p-10 bg-white">
+  <h3 class="text-2xl font-bold mb-4">Historial</h3>
+
+  <p class="text-gray-600">
+    Aquí podrás visualizar tus evaluaciones realizadas anteriormente.
+  </p>
+
+  <div class="bg-gray-100 p-4 rounded shadow inline-block mt-4">
+    No hay registros aún.
+  </div>
+</section>
+
+<!--  INFORMACIÓN  -->
+<section id="informacion" class="seccion hidden text-center p-10 bg-gray-50">
+  <h3 class="text-2xl font-bold mb-4">Información</h3>
+
+  <p class="max-w-xl mx-auto text-gray-700">
+    ChecaLifes+ es una plataforma digital diseñada para brindar orientación básica
+    sobre posibles condiciones de salud a partir de los síntomas ingresados por el usuario.
+    Su finalidad es apoyar en la toma de decisiones informadas sobre el bienestar personal,
+    promoviendo la prevención y el cuidado responsable de la salud.
+    
+
+      <img src="https://png.pngtree.com/thumb_back/fw800/background/20251222/pngtree-doctor-and-patient-discussing-medical-information-at-a-desk-image_20881146.webp"
+       class="w-32 hidden md:block">
+  </p>
+</section>
+
+<!--  IMPORTANTE  -->
+<section class="p-10 text-center bg-white">
+  <h3 class="text-xl font-semibold mb-4">IMPORTANTE</h3>
+  <p class="text-gray-600">
+    Esta plataforma no reemplaza una consulta médica profesional.
+    En caso de emergencia llama a: 115 | 106 | 117
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-blue-600 text-white text-center p-4">
+  @Derechos reservados de autor
+</footer>
+
+<footer class="bg-blue-600 text-white text-center p-2">
+  ChecaLifes+ © 2026
+</footer>
+
+<!-- SCRIPT -->
+<script>
+function mostrarSeccion(id){
+  const secciones = document.querySelectorAll(".seccion");
+  secciones.forEach(sec => sec.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+}
+</script>
 
 </body>
 </html>
