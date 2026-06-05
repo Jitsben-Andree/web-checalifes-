@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Esta clase nos permitirá aplicar CSS específico (ej. evitar saltos de página dentro de tablas)
             elemento.classList.add("pdf-export-mode");
 
-            const opciones = {
+            const opcione = {
                 margin:       [0.8, 0.5, 0.8, 0.5], // Arriba, Derecha, Abajo, Izquierda (espacio para encabezados)
                 filename:     'ChecaLifes_Reporte_Mejorado.pdf', // AQUÍ PROVOCAREMOS EL CONFLICTO
                 image:        { type: 'jpeg', quality: 0.90 }, // Reducimos un poco para optimizar el tamaño
