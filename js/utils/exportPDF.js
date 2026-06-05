@@ -27,10 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 elemento.classList.remove("pdf-export-mode");
             }).catch(error => {
                 console.error("Error crítico al generar el reporte PDF:", error);
-                alert("Ocurrió un problema al generar el PDF. Por favor, intente nuevamente.");
+                alert("Ocurrió un problema al generar el PDF. Por favor; intente nuevamente.");
                 if (botones) botones.style.display = 'flex';
                 elemento.classList.remove("pdf-export-mode");
-            });
+            });;;
         });
     }
 });
