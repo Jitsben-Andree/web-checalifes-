@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Síntomas - ChecaLifes+</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../../tailwind.config.js"></script>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+<nav class="bg-checa-blue p-4 text-white flex justify-between shadow-md">
+  <h1 class="font-bold text-xl flex items-center gap-2">📋 ChecaLifes+</h1>
+  <a href="datos.html" class="hover:text-checa-green font-semibold">← Volver a Datos</a>
+</nav>
+
+<main class="flex-grow container mx-auto p-4 md:p-10">
+  <div class="text-center mb-8">
+    <h2 class="text-3xl font-bold text-gray-800">Selecciona tus síntomas</h2>
+    <p class="text-gray-600 mt-2">Paso 2 de 2: Marca todo lo que estés sintiendo en este momento.</p>
+  </div>
+
+  <form id="formSintomas">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+      <!-- SINTOMAS (Reutilizando el excelente diseño de Jarol, pero mejorando el visual) -->
+      <label class="border-2 border-gray-200 hover:border-checa-blue p-4 rounded-xl text-center cursor-pointer transition bg-white shadow-sm flex flex-col items-center justify-between">
+        <input type="checkbox" name="sintomas" value="dolor_cabeza" class="w-5 h-5 mb-3 text-checa-blue">
+        <img src="https://cdn-icons-png.flaticon.com/512/2867/2867375.png" class="w-16 h-16 mx-auto mb-2 object-contain" alt="Dolor de cabeza">
+        <span class="font-medium text-gray-700">Dolor de cabeza</span>
+      </label>
+
+      <label class="border-2 border-gray-200 hover:border-checa-blue p-4 rounded-xl text-center cursor-pointer transition bg-white shadow-sm flex flex-col items-center justify-between">
+        <input type="checkbox" name="sintomas" value="fiebre" class="w-5 h-5 mb-3 text-checa-blue">
+        <img src="https://cdn-icons-png.flaticon.com/512/3209/3209000.png" class="w-16 h-16 mx-auto mb-2 object-contain" alt="Fiebre">
+        <span class="font-medium text-gray-700">Fiebre</span>
+      </label>
+
+      <label class="border-2 border-gray-200 hover:border-checa-blue p-4 rounded-xl text-center cursor-pointer transition bg-white shadow-sm flex flex-col items-center justify-between">
+        <input type="checkbox" name="sintomas" value="tos" class="w-5 h-5 mb-3 text-checa-blue">
+        <img src="https://cdn-icons-png.flaticon.com/512/2867/2867355.png" class="w-16 h-16 mx-auto mb-2 object-contain" alt="Tos">
+        <span class="font-medium text-gray-700">Tos seca o con flema</span>
+      </label>
+
+      <label class="border-2 border-gray-200 hover:border-checa-blue p-4 rounded-xl text-center cursor-pointer transition bg-white shadow-sm flex flex-col items-center justify-between">
+        <input type="checkbox" name="sintomas" value="pecho" class="w-5 h-5 mb-3 text-checa-blue">
+        <img src="https://cdn-icons-png.flaticon.com/512/5024/5024345.png" class="w-16 h-16 mx-auto mb-2 object-contain" alt="Dolor de pecho">
+        <span class="font-medium text-gray-700">Dolor de pecho</span>
+      </label>
+
+      <label class="border-2 border-gray-200 hover:border-checa-blue p-4 rounded-xl text-center cursor-pointer transition bg-white shadow-sm flex flex-col items-center justify-between">
+        <input type="checkbox" name="sintomas" value="nauseas" class="w-5 h-5 mb-3 text-checa-blue">
+        <img src="https://cdn-icons-png.flaticon.com/512/2966/2966327.png" class="w-16 h-16 mx-auto mb-2 object-contain" alt="Náuseas">
+        <span class="font-medium text-gray-700">Náuseas o Vómitos</span>
+      </label>
+
+      <label class="border-2 border-gray-200 hover:border-checa-blue p-4 rounded-xl text-center cursor-pointer transition bg-white shadow-sm flex flex-col items-center justify-between">
+        <input type="checkbox" name="sintomas" value="garganta" class="w-5 h-5 mb-3 text-checa-blue">
+        <img src="https://cdn-icons-png.flaticon.com/512/2867/2867350.png" class="w-16 h-16 mx-auto mb-2 object-contain" alt="Dolor de garganta">
+        <span class="font-medium text-gray-700">Dolor de garganta</span>
+      </label>
+
+      <label class="border-2 border-gray-200 hover:border-checa-blue p-4 rounded-xl text-center cursor-pointer transition bg-white shadow-sm flex flex-col items-center justify-between">
+        <input type="checkbox" name="sintomas" value="fatiga" class="w-5 h-5 mb-3 text-checa-blue">
+        <img src="https://cdn-icons-png.flaticon.com/512/2966/2966334.png" class="w-16 h-16 mx-auto mb-2 object-contain" alt="Fatiga">
+        <span class="font-medium text-gray-700">Cansancio extremo</span>
+      </label>
+
+      <label class="border-2 border-gray-200 hover:border-checa-blue p-4 rounded-xl text-center cursor-pointer transition bg-white shadow-sm flex flex-col items-center justify-between">
+        <input type="checkbox" name="sintomas" value="respirar" class="w-5 h-5 mb-3 text-checa-blue">
+        <img src="https://cdn-icons-png.flaticon.com/512/5024/5024361.png" class="w-16 h-16 mx-auto mb-2 object-contain" alt="Dificultad al respirar">
+        <span class="font-medium text-gray-700">Dificultad al respirar</span>
+      </label>
+
+    </div>
+
+    <div class="text-center mt-10">
+      <!-- Este botón debe ser procesado por triajeController.js para guardar en localStorage y redirigir -->
+      <button type="submit" class="bg-checa-green-text hover:bg-green-800 text-white font-bold px-10 py-4 rounded-full shadow-lg text-lg transition transform hover:scale-105">
+        ANALIZAR MIS SÍNTOMAS →
+      </button>
+    </div>
+  </form>
+
+</main>
+
+<script src="../../js/controllers/triajeController.js"></script>
+</body>
+</html>
