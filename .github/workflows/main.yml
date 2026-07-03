@@ -1,0 +1,27 @@
+name: Integración Continua Frontend web-checalifes
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Descargar el código del repositorio
+      uses: actions/checkout@v3
+
+    - name: Verificar archivos del proyecto
+      run: |
+        echo "Verificando estructura del proyecto web..."
+        ls -la
+
+    - name: Empaquetar proyecto (HTML, CSS, JS)
+      uses: actions/upload-artifact@v3
+      with:
+        name: checalifes-web-build
+        path: .
+        if-no-files-found: error
