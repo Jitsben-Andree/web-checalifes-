@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - name: Descargar el código del repositorio
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Verificar archivos del proyecto
       run: |
@@ -20,7 +20,7 @@ jobs:
         ls -la
 
     - name: Empaquetar proyecto (HTML, CSS, JS)
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: checalifes-web-build
         path: .
