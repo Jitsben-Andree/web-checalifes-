@@ -1,0 +1,57 @@
+name: CI/CD web-checalifes
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Descargar el código del repositorio
+      uses: actions/checkout@v4
+
+    - name: Verificar archivos del proyecto
+      run: |
+        echo "Verificando estructura del proyecto web..."
+        ls -la
+
+    - name: Empaquetar proyecto
+      uses: actions/upload-artifact@v4
+      with:
+        name: checalifes-web-build
+        path: .
+        if-no-files-found: error
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Desplegar en el VPS vía SSH usando Docker
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.VPS_IP }}
+        username: ${{ secrets.VPS_USER }}
+        password: ${{ secrets.VPS_PASSWORD }}
+        script: |
+          # 0. Entrar a la carpeta específica en el VPS
+          cd /root/jitsben/herramientas
+
+          # 1. Clonar o actualizar el repositorio en el VPS
+          if [ ! -d "web-checalifes-" ]; then
+            git clone https://github.com/Jitsben-Andree/web-checalifes-.git
+          fi
+          cd web-checalifes-
+          git pull origin main
+          
+          # 2. Construir la nueva imagen de Docker
+          docker build -t checalifes-app .
+          
+          # 3. Detener y borrar el contenedor anterior
+          docker stop contenedor-checalifes || true
+          docker rm contenedor-checalifes || true
+          
+          # 4. Levantar el nuevo contenedor en el puerto 8081
+          docker run -d --name contenedor-checalifes -p 8081:80 checalifes-app
